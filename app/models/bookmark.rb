@@ -1,2 +1,2 @@
-class Bookmark < ApplicationRecord
+class Bookmarks < ApplicationRecord
 end

@@ -1,8 +1,7 @@
 class Movie < ApplicationRecord
   has_many :bookmarks
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true, length: { maximum: 100 }
   validates :overview, presence: true
-  validates :title, length: { maximum: 100 }
 
 end

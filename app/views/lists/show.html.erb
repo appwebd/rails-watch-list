@@ -1,2 +1,25 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1><%= @list.name %>
+
+        <small>
+          <%= link_to "#{@list.id}/edit", :method => :get, :title => "Update  #{@list.name}" do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+        </small>
+        <small>
+
+          <%= link_to @lists, :method => :delete, :title => "Delete #{@list.name}", data: { :confirm => "You sure?", disable_with: "Processing ..." } do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+
+        </small>
+
+      </h1>
+      <hr>
+      <br>
+      <%= link_to "See all list", lists_path %>
+    </div>
+  </div>
+</div>

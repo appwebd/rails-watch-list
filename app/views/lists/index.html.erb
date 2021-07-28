@@ -1,2 +1,23 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>All Lists</h1>
+      <ul class="list-group">
+        <% @lists.each do |item| %>
+          <li class="list-group-item">
+            <%= link_to item.name, "lists/#{item.id}" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <hr>
+      <%= link_to 'Add a new list', new_list_path(@lists) %>
+    </div>
+  </div>
+</div>

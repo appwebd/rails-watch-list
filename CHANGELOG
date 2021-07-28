@@ -1,0 +1,9 @@
+7824811 Wed Jul 28 17:59:46 2021 -0400 was solve list index/create/view/delete
+e64a044 Wed Jul 28 16:49:18 2021 -0400 Was generate controller with actions index show new
+5c132c6 Wed Jul 28 16:12:58 2021 -0400 Was solved validation with the command rspec spec/models
+0207077 Tue Jul 27 20:20:02 2021 -0400 was updated database model
+e12f7ee Tue Jul 27 17:19:47 2021 -0400 was generated model and migrate  movie,  list
+df2b52e Tue Jul 27 17:05:12 2021 -0400 Was generated model bookmark
+9097231 Tue Jul 27 16:40:47 2021 -0400 Was added Le Wagon’s stylesheets and boostrap components
+8cf4eda Tue Jul 27 16:18:22 2021 -0400 Prepare rails app with external specs
+9038d8c Tue Jul 27 16:15:04 2021 -0400 rails new

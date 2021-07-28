@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   # view
   #
 
-
   resources :lists
-
-
 
 end

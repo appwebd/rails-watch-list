@@ -1,0 +1,9 @@
+<%= simple_form_for @movie do |f| %>
+
+  <%= f.input :title, placeholder: 'Enter a title' %>
+  <%= f.input :overview, as: :text, placeholder: 'Enter a overview' %>
+  <%= f.input :poster_url, placeholder: 'Enter a poster url ' %>
+  <%= f.input :rating, placeholder: 'Enter a rating url' %>
+  <%= f.submit class: 'btn btn-flat' %>
+  
+<% end %>

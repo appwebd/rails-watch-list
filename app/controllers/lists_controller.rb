@@ -11,8 +11,11 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params_list)
-    @list.save
-    redirect_to lists_path(@list.id)
+    if @list.save
+      redirect_to lists_path(@list.id)
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -22,11 +25,13 @@ class ListsController < ApplicationController
     redirect_to lists_path(@list.id)
   end
 
-  def show; end
+  def show
+    @bookmark = Bookmark.new
+  end
 
   def destroy
     @list.destroy
-    redirect_to lists_path(@lists)
+    redirect_to lists_path
   end
 
   private

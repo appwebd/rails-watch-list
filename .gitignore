@@ -36,4 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 
 .idea/*
-.env*
+.env
+

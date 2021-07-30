@@ -20,23 +20,38 @@
 </div>
 
 <div class="container mb-5">
+
   <div class="d-flex justify-content-between my-4">
-    <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em></small></span>
+    <span class="mb-2 d-block">
+      <small>
+        <em class="text-muted">
+          <%= "You haven't saved any bookmark yet!" if  Bookmark.all %>
+        </em>
+      </small>
+    </span>
     <div>
-      <%= link_to 'add a movie', new_movie_path(@movie), class: 'btn btn-flat' %>
+      <%= link_to 'add a movie', new_list_bookmark_path(@list), class: 'btn btn-flat' %>
       <%= link_to 'delete this list', list_path(@list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this list?' } %>
     </div>
   </div>
+
   <div class="row my-2">
     <% @list.movies.each do |movie| %>
+
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+
       <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
         <div class="bg-white rounded shadow h-100">
+
           <%= image_tag movie.poster_url, alt: movie.title, class: 'movie-img rounded-top' %>
+
           <div class="p-3 rounded-bottom d-flex flex-column">
+
             <strong><%= movie.title %>
-              <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong>
+              <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span>
+            </strong>
             <small class="text-muted"><%= movie.overview %></small>
+
             <div class="d-flex align-items-end justify-content-between pt-4">
               <div>
                 <i class="fas fa-quote-left mr-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
@@ -59,3 +74,4 @@
       </div>
     </div>
   </div>
+</div>

@@ -3,14 +3,14 @@
     <h1><%= @list.name %>&nbsp; &nbsp; </h1>
     <small>
       <%= link_to "#{@list.id}/edit", :method => :get, :title => "Update  #{@list.name}" do %>
-        <i class="fas fa-pencil-alt"></i>
+        <em class="fas fa-pencil-alt"></em>
       <% end %>
     </small>
     &nbsp;
     <small>
 
       <%= link_to @lists, :method => :delete, :title => "Delete #{@list.name}", data: { :confirm => "You sure?", disable_with: "Processing ..." } do %>
-        <i class="fas fa-trash"></i>
+        <em class="fas fa-trash"></em>
       <% end %>
 
     </small>
@@ -25,7 +25,19 @@
     <span class="mb-2 d-block">
       <small>
         <em class="text-muted">
-          <%= "You haven't saved any bookmark yet!" if  Bookmark.all %>
+          <%
+            nro_movies = 0
+            @list.movies.each do |movie|
+              begin
+                bookmark = Bookmark.find_by(list: @list, movie: movie)
+                nro_movies += bookmark.count
+              rescue
+                nro_movies += 0
+              end
+            end
+          %>
+
+          <%= "You haven't saved any bookmark yet!" if nro_movies == 0 %>
         </em>
       </small>
     </span>
@@ -48,15 +60,32 @@
           <div class="p-3 rounded-bottom d-flex flex-column">
 
             <strong><%= movie.title %>
-              <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span>
+              <span class="text-muted font-weight-normal"> •
+                <%= movie.rating %>
+                <em class="fas fa-star star-yellow"></em>
+              </span>
             </strong>
-            <small class="text-muted"><%= movie.overview %></small>
+            <small class="text-muted">
+              <%= movie.overview %>
+            </small>
 
             <div class="d-flex align-items-end justify-content-between pt-4">
               <div>
-                <i class="fas fa-quote-left mr-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+                <em class="fas fa-quote-left mr-2"></em>
+                <small class="flex-grow-1">
+                  <%= bookmark.comment %>
+                </small>
               </div>
-              <small class="text-right flex-shrink-0"><%= link_to 'delete', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list" }, class: 'text-danger' %></small>
+              <small class="text-right flex-shrink-0">
+                <%= link_to 'delete',
+                            bookmark_path(bookmark),
+                            method: :delete,
+                            data: {
+                              confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"
+                            },
+                            class: 'text-danger'
+                %>
+              </small>
             </div>
           </div>
         </div>

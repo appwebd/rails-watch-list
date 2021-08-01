@@ -37,4 +37,5 @@ yarn-debug.log*
 
 .idea/*
 .env
+.scannerwork/
 

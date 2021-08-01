@@ -5,19 +5,20 @@
 
         <small>
           <%= link_to "#{@movie.id}/edit", :method => :get, :title => "Update  #{@movie.title}" do %>
-            <i class="fas fa-pencil-alt"></i>
+            <em class="fas fa-pencil-alt"></em>
           <% end %>
         </small>
         <small>
 
           <%= link_to @movie, :method => :delete, :title => "Delete #{@movie.title}", data: { :confirm => "You sure?", disable_with: "Processing ..." } do %>
-            <i class="fas fa-trash"></i>
+            <em class="fas fa-trash"></em>
           <% end %>
 
         </small>
       </h1>
       <hr>
-      <table class="table table-bordered">
+      <table class="table table-bordered" >
+        <caption>Description of movie</caption>
         <tbody>
         <tr>
           <th scope="row">title</th>
@@ -32,7 +33,7 @@
           <td><%= @movie.poster_url %></td>
         </tr>
         <tr>
-          <th>Rating</th>
+          <th scope="row">Rating</th>
           <td><%= @movie.rating %></td>
         </tr>
         </tbody>

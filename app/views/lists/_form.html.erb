@@ -1,5 +1,6 @@
 <%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-
+  <%= f.input :name, placeholder: 'Action' %>
+  <%= f.input :photo %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
+

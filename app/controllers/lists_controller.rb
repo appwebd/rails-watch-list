@@ -16,7 +16,9 @@ class ListsController < ApplicationController
     redirect_to lists_path
   end
 
-  def edit; end
+  def edit
+    # application does not need implementation code
+  end
 
   def index
     @lists = List.all

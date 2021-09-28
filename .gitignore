@@ -39,3 +39,4 @@ yarn-debug.log*
 .env
 .scannerwork/
 run-sonarqube-analysis.sh
+Gemfile.lock
